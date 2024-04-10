@@ -35,10 +35,11 @@ Original Author: Shay Gal-on
 #define MEM_MALLOC 1
 #define MEM_STACK  2
 
-#include "core_portme.h"
+#include "simple/core_portme.h"
 
 #if HAS_STDIO
 #include <stdio.h>
+#include "printf.h"
 #endif
 #if HAS_PRINTF
 #define ee_printf printf
