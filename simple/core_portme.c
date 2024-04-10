@@ -18,7 +18,12 @@ Original Author: Shay Gal-on
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "coremark.h"
+#include "../coremark.h"
+
+#include <benchmark.h>
+#include <snrt.h>
+
+#define ITERATIONS 1
 
 #if VALIDATION_RUN
 volatile ee_s32 seed1_volatile = 0x3415;
@@ -53,7 +58,7 @@ volatile ee_s32 seed5_volatile = 0;
         */
 #define NSECS_PER_SEC              CLOCKS_PER_SEC
 #define CORETIMETYPE               clock_t
-#define GETMYTIME(_t)              (*_t = clock())
+#define GETMYTIME(_t)              (*_t = benchmark_get_cycle())
 #define MYTIMEDIFF(fin, ini)       ((fin) - (ini))
 #define TIMER_RES_DIVIDER          1
 #define SAMPLE_TIME_IMPLEMENTATION 1
